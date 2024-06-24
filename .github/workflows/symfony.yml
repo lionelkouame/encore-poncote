@@ -15,10 +15,13 @@ jobs:
     services:
       docker:
         image: circleci/postgres:12.4
+        container_name: postgres
         env:
           POSTGRES_USER: root
           POSTGRES_DB: symfony_test
           POSTGRES_PASSWORD: password
+          ports:
+            - 5432:5432
     steps:
       - uses: shivammathur/setup-php@2cb9b829437ee246e9b3cac53555a39208ca6d28
         with:
@@ -27,7 +30,7 @@ jobs:
       - uses: actions/checkout@v4
       - name: Setup Environment
         run: |
-          echo "DATABASE_URL=postgresql://root:password@postgres:5432/symfony_test" >> $GITHUB_ENV
+          echo "DATABASE_URL=postgresql://root:password@127.0.0.1:5432/symfony_test" >> $GITHUB_ENV
       - name: Cache Composer packages
         uses: actions/cache@v3
         with:
