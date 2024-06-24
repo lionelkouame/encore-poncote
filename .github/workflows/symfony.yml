@@ -18,12 +18,12 @@ jobs:
   symfony-tests:
     runs-on: ubuntu-latest
     services:
-      - docker:
-          - image: circleci/postgres:12.4
-            environment:
-              POSTGRES_USER: root
-              POSTGRES_DB: symfony_test
-              POSTGRES_PASSWORD: password
+      docker:
+          image: circleci/postgres:12.4
+          environment:
+            POSTGRES_USER: root
+            POSTGRES_DB: symfony_test
+            POSTGRES_PASSWORD: password
 
     steps:
     #  To automatically get bug fixes and new Php versions for shivammathur/setup-php,
