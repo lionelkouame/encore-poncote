@@ -15,7 +15,6 @@ jobs:
     services:
       docker:
         image: circleci/postgres:12.4
-        container_name: postgres
         env:
           POSTGRES_USER: root
           POSTGRES_DB: symfony_test
