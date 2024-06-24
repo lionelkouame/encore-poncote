@@ -19,8 +19,6 @@ jobs:
           POSTGRES_USER: root
           POSTGRES_DB: symfony_test
           POSTGRES_PASSWORD: password
-          ports:
-            - 5432:5432
     steps:
       - uses: shivammathur/setup-php@2cb9b829437ee246e9b3cac53555a39208ca6d28
         with:
